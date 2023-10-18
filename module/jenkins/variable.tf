@@ -1,0 +1,11 @@
+variable "ami" {}
+variable "instance_type" {}
+variable "security_groups" {}
+variable "key_name" {}
+variable "subnet_id" {}
+variable "nexus-ip" {}
+variable "tags" {}
+variable "jenkins-elb" {}
+variable "subnetid" {}
+variable "newrelic-user-licence" {}
+variable "newrelic-acct-id" {}
