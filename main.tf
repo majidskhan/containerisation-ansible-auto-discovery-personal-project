@@ -64,3 +64,18 @@ module "sonarqube" {
   newrelic-user-licence = "NRAK-BIXF3NWDTURHEHFOGCNNANRA0V0"
   newrelic-acct-id      = 3947187
 }
+
+module "jenkins" {
+  source = "./module/jenkins"
+  ami = "ami-0e04728db873b194c"
+  instance_type = "t2.medium"
+  security_groups = [module.vpc.jenkins-sg]
+  key_name = module.vpc.keypair-name
+  subnet_id = module.vpc.prt-subnet1
+  nexus-ip = module.nexus.nexus-ip
+  tags = "${local.name}-jenkins-server"
+  jenkins-elb = "${local.name}-jenkins-elb"
+  subnetid = [module.vpc.pub-subnet1]
+  newrelic-user-licence = "NRAK-BIXF3NWDTURHEHFOGCNNANRA0V0"
+  newrelic-acct-id      = 3947187
+}
